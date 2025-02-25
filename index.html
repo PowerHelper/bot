@@ -4,12 +4,23 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>إعلان Monetag</title>
-    <script src="https://your-monetag-script-link.js"></script>
+    <script src="https://telegram.org/js/telegram-web-app.js"></script> <!-- Telegram WebApp API -->
+    <script src="https://your-monetag-script.js"></script> <!-- سكريبت Monetag (استبدل برابط Monetag الخاص بك) -->
 </head>
 <body>
-    <h2>شاهد الإعلان للحصول على المكافأة</h2>
-    <button onclick="show_8952691().then(() => alert('تمت مشاهدة الإعلان!'));">
-        مشاهدة الإعلان
-    </button>
+    <h1>إعلان Monetag</h1>
+    <button onclick="showAd()">شاهد الإعلان</button>
+
+    <script>
+        function showAd() {
+            show_8952691().then(() => {
+                alert("🎉 شكرًا لمشاهدة الإعلان!");
+            });
+        }
+
+        // Telegram WebApp Initialization
+        let tg = window.Telegram.WebApp;
+        tg.expand(); // توسيع التطبيق المصغر ليأخذ كامل الشاشة
+    </script>
 </body>
 </html>
