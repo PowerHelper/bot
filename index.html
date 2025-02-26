@@ -3,29 +3,96 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>إعلان Monetag</title>
+    <title>إنشاء بورتفوليو شخصي</title>
     <script src="https://telegram.org/js/telegram-web-app.js"></script> <!-- Telegram WebApp API -->
     <script src='//whephiwums.com/sdk.js' data-zone='8952691' data-sdk='show_8952691'></script> <!-- Monetag Ad SDK -->
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            direction: rtl;
+            padding: 20px;
+        }
+        .container {
+            max-width: 600px;
+            margin: auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            background-color: #f9f9f9;
+        }
+        input, textarea, button {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            font-size: 16px;
+        }
+        button {
+            cursor: pointer;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 18px;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+    </style>
 </head>
 <body>
-    <h1>إعلان Monetag</h1>
-    <p>مرحبًا! اضغط على الزر أدناه لمشاهدة الإعلان قبل تحميل الملف.</p>
-    <button onclick="showAd()">شاهد الإعلان وتحميل الملف</button>
+
+    <div class="container">
+        <h1>إنشاء بورتفوليو شخصي</h1>
+        <form id="portfolioForm">
+            <label for="name">الاسم:</label>
+            <input type="text" id="name" required>
+
+            <label for="bio">السيرة الذاتية:</label>
+            <textarea id="bio" rows="4" required></textarea>
+
+            <label for="skills">المهارات:</label>
+            <textarea id="skills" rows="4" required></textarea>
+
+            <label for="portfolioLink">رابط محفظتك (إن وجد):</label>
+            <input type="url" id="portfolioLink">
+
+            <button type="button" onclick="showAd()">إعرض الإعلان لتحميل البورتفوليو</button>
+        </form>
+    </div>
 
     <script>
         // وظيفة لعرض الإعلان
         function showAd() {
+            // عرض الإعلان
             show_8952691().then(() => {
-                alert("🎉 شكرًا لمشاهدة الإعلان! الآن يمكنك تحميل الملف.");
-                window.location.href = "https://yourfilelink.com/yourfile.zip"; // رابط تحميل الملف
+                // إنشاء البورتفوليو إذا تمت مشاهدة الإعلان
+                generatePortfolio();
             }).catch(() => {
                 alert("حدث خطأ أثناء عرض الإعلان.");
             });
+        }
+
+        // دالة لإنشاء البورتفوليو وتحميله بعد مشاهدة الإعلان
+        function generatePortfolio() {
+            const name = document.getElementById("name").value;
+            const bio = document.getElementById("bio").value;
+            const skills = document.getElementById("skills").value;
+            const portfolioLink = document.getElementById("portfolioLink").value;
+
+            // تأكد من ملء جميع الحقول
+            if (name && bio && skills) {
+                // سيتم إرسال البيانات إلى الخادم هنا لإنشاء PDF (يمكنك استبدال الرابط لاحقًا بخادم حقيقي)
+                alert("تم إنشاء البورتفوليو! يمكنك تحميله الآن.");
+                window.location.href = "https://yourserver.com/generated-portfolio.pdf"; // استبدل الرابط برابط حقيقي لتحميل الملف
+            } else {
+                alert("يرجى ملء جميع الحقول.");
+            }
         }
 
         // Telegram WebApp Initialization
         let tg = window.Telegram.WebApp;
         tg.expand(); // توسيع التطبيق المصغر ليأخذ كامل الشاشة
     </script>
+
 </body>
 </html>
