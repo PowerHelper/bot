@@ -5,16 +5,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>إعلان Monetag</title>
     <script src="https://telegram.org/js/telegram-web-app.js"></script> <!-- Telegram WebApp API -->
-    <script src='//whephiwums.com/sdk.js' data-zone='8952691' data-sdk='show_8952691'></script>
+    <script src='//whephiwums.com/sdk.js' data-zone='8952691' data-sdk='show_8952691'></script> <!-- Monetag Ad SDK -->
 </head>
 <body>
     <h1>إعلان Monetag</h1>
-    <button onclick="showAd()">شاهد الإعلان</button>
+    <p>مرحبًا! اضغط على الزر أدناه لمشاهدة الإعلان قبل تحميل الملف.</p>
+    <button onclick="showAd()">شاهد الإعلان وتحميل الملف</button>
 
     <script>
+        // وظيفة لعرض الإعلان
         function showAd() {
             show_8952691().then(() => {
-                alert("🎉 شكرًا لمشاهدة الإعلان!");
+                alert("🎉 شكرًا لمشاهدة الإعلان! الآن يمكنك تحميل الملف.");
+                window.location.href = "https://yourfilelink.com/yourfile.zip"; // رابط تحميل الملف
+            }).catch(() => {
+                alert("حدث خطأ أثناء عرض الإعلان.");
             });
         }
 
