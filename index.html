@@ -3,90 +3,148 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>إنشاء بورتفوليو شخصي</title>
+    <title>🔒 مشاهدة المحتوى</title>
     <script src="https://telegram.org/js/telegram-web-app.js"></script> <!-- Telegram WebApp API -->
     <script src='//whephiwums.com/sdk.js' data-zone='8952691' data-sdk='show_8952691'></script> <!-- Monetag Ad SDK -->
     <style>
         body {
-            font-family: Arial, sans-serif;
+            font-family: "Tajawal", sans-serif;
             direction: rtl;
-            padding: 20px;
+            text-align: center;
+            background: linear-gradient(145deg, #6a11cb, #2575fc); /* تحسن في الألوان */
+            color: white;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start; /* تعديل لتثبيت المحتوى داخل الصفحة */
+            min-height: 100vh; /* تعيين الحد الأدنى للارتفاع بحيث تظهر الصفحة بالكامل */
+            overflow: auto; /* منع التمرير الأفقي */
         }
         .container {
-            max-width: 600px;
-            margin: auto;
-            padding: 20px;
-            border: 1px solid #ccc;
-            border-radius: 8px;
-            background-color: #f9f9f9;
-        }
-        input, textarea, button {
+            max-width: 450px;
             width: 100%;
-            padding: 10px;
-            margin-bottom: 10px;
-            font-size: 16px;
+            padding: 30px;
+            background: #ffffff;
+            border-radius: 20px;
+            box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.1);
+            color: #333;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+        .container:hover {
+            transform: scale(1.05); /* تأثير تكبير عند المرور */
+            box-shadow: 0px 15px 50px rgba(0, 0, 0, 0.2);
+        }
+        h1 {
+            font-size: 28px;
+            color: #2575fc;
+            margin-bottom: 20px;
+            font-weight: bold;
+        }
+        p {
+            font-size: 18px;
+            color: #333;
+            margin-bottom: 20px;
+        }
+        .content-box {
+            display: none;
+            margin-top: 20px;
+            padding: 15px;
+            border-radius: 10px;
+            background-color: #f1f1f1;
+            box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
         }
         button {
-            cursor: pointer;
-            background-color: #4CAF50;
-            color: white;
-            border: none;
-            border-radius: 5px;
+            width: 100%;
+            padding: 15px;
             font-size: 18px;
+            border: none;
+            border-radius: 12px;
+            cursor: pointer;
+            color: white;
+            background: #28a745;
+            margin-top: 15px;
+            transition: 0.3s;
+            font-weight: bold;
         }
         button:hover {
-            background-color: #45a049;
+            background: #218838;
+        }
+        .btn-watch {
+            background: #ff9800;
+        }
+        .btn-watch:hover {
+            background: #e68900;
+        }
+        .content-item {
+            margin-top: 15px;
+            padding: 15px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.1);
+            text-align: left;
+        }
+        .content-item img {
+            width: 100%;
+            border-radius: 10px;
+            margin-top: 10px;
+        }
+        iframe {
+            width: 100%;
+            height: 250px;
+            border-radius: 12px;
+            margin-top: 10px;
         }
     </style>
 </head>
 <body>
 
     <div class="container">
-        <h1>إنشاء بورتفوليو شخصي</h1>
-        <form id="portfolioForm">
-            <label for="name">الاسم:</label>
-            <input type="text" id="name" required>
+        <h1>🔒 اضغط لمشاهدة المحتوى</h1>
+        <p>لمشاهدة المحتوى اضغط على الزر أدناه.</p>
+        <button class="btn-watch" onclick="showAd()">👀 اضغط لمشاهدة المحتوى</button>
 
-            <label for="bio">السيرة الذاتية:</label>
-            <textarea id="bio" rows="4" required></textarea>
+        <div class="content-box" id="content">
+            <h2>🎉 مبروك! الآن يمكنك الوصول إلى المحتوى:</h2>
+            
+            <!-- 📄 تحميل ملف PDF -->
+            <div class="content-item">
+                <p>📄 تحميل ملف PDF</p>
+                <a href="https://yourfilelink.com/sample.pdf" download>
+                    <button>📥 تحميل PDF</button>
+                </a>
+            </div>
 
-            <label for="skills">المهارات:</label>
-            <textarea id="skills" rows="4" required></textarea>
+            <!-- 🎥 فيديو من يوتيوب -->
+            <div class="content-item">
+                <p>🎥 مشاهدة الفيديو</p>
+                <iframe src="https://www.youtube.com/embed/gxW2CddIocU" allowfullscreen></iframe>
+            </div>
 
-            <label for="portfolioLink">رابط محفظتك (إن وجد):</label>
-            <input type="url" id="portfolioLink">
+            <!-- 🖼️ صورة -->
+            <div class="content-item">
+                <p>🖼️ عرض صورة</p>
+                <img src="https://i.imgur.com/2mXRNqW.jpg" alt="صورة الذكاء الاصطناعي">
+            </div>
 
-            <button type="button" onclick="showAd()">إعرض الإعلان لتحميل البورتفوليو</button>
-        </form>
+            <!-- 🔗 رابط موقع الذكاء الاصطناعي -->
+            <div class="content-item">
+                <p>🤖 جرب أدوات الذكاء الاصطناعي الآن</p>
+                <a href="https://neuraltools.tech" target="_blank">
+                    <button>🌐 زيارة موقع NeuralTools</button>
+                </a>
+            </div>
+        </div>
     </div>
 
     <script>
-        // وظيفة لعرض الإعلان
         function showAd() {
-            // عرض الإعلان
             show_8952691().then(() => {
-                // إنشاء البورتفوليو إذا تمت مشاهدة الإعلان
-                generatePortfolio();
+                document.getElementById("content").style.display = "block";
             }).catch(() => {
-                alert("حدث خطأ أثناء عرض الإعلان.");
+                alert("❌ حدث خطأ أثناء عرض الإعلان.");
             });
-        }
-
-        // دالة لإنشاء البورتفوليو وتحميله بعد مشاهدة الإعلان
-        function generatePortfolio() {
-            const name = document.getElementById("name").value;
-            const bio = document.getElementById("bio").value;
-            const skills = document.getElementById("skills").value;
-            const portfolioLink = document.getElementById("portfolioLink").value;
-
-            // تأكد من ملء جميع الحقول
-            if (name && bio && skills) {
-                // سيتم إرسال البيانات إلى الخادم هنا لإنشاء PDF (يمكنك استبدال الرابط لاحقًا بخادم حقيقي)
-                alert("تم إنشاء البورتفوليو! يمكنك تحميله الآن.");
-                window.location.href = "https://yourserver.com/generated-portfolio.pdf"; // استبدل الرابط برابط حقيقي لتحميل الملف
-            } else {
-                alert("يرجى ملء جميع الحقول.");
-            }
         }
 
         // Telegram WebApp Initialization

@@ -6,7 +6,7 @@ bot = telebot.TeleBot(TOKEN)
 
 # روابط صفحات الهبوط لكل خدمة
 LANDING_PAGES = {
-    "netflix": "http://127.0.0.1:5500/index.html/",
+    "netflix": "https://powerhelper.github.io/bot/",
     "spotify": "https://powerhelper.github.io/bot/",
     "iptv": "https://powerhelper.github.io/bot/"
 }
