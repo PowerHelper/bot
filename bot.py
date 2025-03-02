@@ -1,33 +1,29 @@
+import os
+os.system("pip install pyTelegramBotAPI")
 import telebot
+from telebot.types import InlineKeyboardMarkup, InlineKeyboardButton
 
 # توكن بوت تيليجرام
-TOKEN = '7854834366:AAGvtpoZNuAWveD8lZVjKCSdzsku4mtXVtk'
+TOKEN = '7898491089:AAH4_KwLOlrLj_tDrtaVub9WaSS9TKNbuGE'
 bot = telebot.TeleBot(TOKEN)
 
-# روابط صفحات الهبوط لكل خدمة
-LANDING_PAGES = {
-    "netflix": "https://powerhelper.github.io/bot/",
-    "spotify": "https://powerhelper.github.io/bot/",
-    "iptv": "https://powerhelper.github.io/bot/"
-}
+# رابط موقع أدوات الذكاء الاصطناعي
+AI_TOOLS_URL = "https://powerhelper.github.io/bot/index.html"
 
-# إرسال قائمة الخدمات عند الأمر /start
+# إرسال رسالة الترحيب عند الأمر /start
 @bot.message_handler(commands=['start'])
 def send_welcome(message):
     bot.send_message(
         message.chat.id, 
-        "🎉 مرحبًا بك في بوت بيع الاشتراكات!\n"
-        "اختر الخدمة التي تريدها بالنقر على أحد الأزرار أدناه:",
-        reply_markup=get_main_menu()
+        "🤖 مرحبًا بك في موقع أدوات الذكاء الاصطناعي الخاص بنا!\n"
+        "🔗 اضغط على الزر أدناه للاستفادة من أحدث أدوات الذكاء الاصطناعي.",
+        reply_markup=get_tools_button()
     )
 
-# إنشاء لوحة أزرار للخدمات
-from telebot.types import InlineKeyboardMarkup, InlineKeyboardButton
-
-def get_main_menu():
+# إنشاء زر لزيارة الموقع
+def get_tools_button():
     markup = InlineKeyboardMarkup()
-    for service, url in LANDING_PAGES.items():
-        markup.add(InlineKeyboardButton(text=f"اشتراك {service.capitalize()}", url=url))
+    markup.add(InlineKeyboardButton(text="🔍 زيارة موقع الأدوات", url=AI_TOOLS_URL))
     return markup
 
 # تشغيل البوت
