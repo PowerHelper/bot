@@ -3,15 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>🔒 مشاهدة المحتوى</title>
-    <script src="https://telegram.org/js/telegram-web-app.js"></script> <!-- Telegram WebApp API -->
+    <title>👛 محفظتي</title>
+    <script src="https://telegram.org/js/telegram-web-app.js"></script>
     <script src='//whephiwums.com/sdk.js' data-zone='9026863' data-sdk='show_9026863'></script>
     <style>
         body {
             font-family: "Tajawal", sans-serif;
             direction: rtl;
             text-align: center;
-            background: linear-gradient(145deg, #6a11cb, #2575fc);
+            background: linear-gradient(145deg, #0f2027, #203a43, #2c5364);
             color: white;
             margin: 0;
             padding: 0;
@@ -19,7 +19,6 @@
             justify-content: center;
             align-items: center;
             min-height: 100vh;
-            overflow: auto;
         }
         .container {
             max-width: 450px;
@@ -29,19 +28,11 @@
             border-radius: 20px;
             box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.1);
             color: #333;
-            text-align: center;
         }
         h1 {
-            font-size: 28px;
-            color: #2575fc;
-            margin-bottom: 20px;
+            color: #0d47a1;
         }
-        p {
-            font-size: 18px;
-            color: #333;
-            margin-bottom: 20px;
-        }
-        .content-box {
+        .wallet-content {
             display: none;
             margin-top: 20px;
         }
@@ -53,44 +44,47 @@
             border-radius: 12px;
             cursor: pointer;
             color: white;
-            background: #ff9800;
+            background: #4caf50;
             margin-top: 15px;
             transition: 0.3s;
             font-weight: bold;
         }
         button:hover {
-            background: #e68900;
+            background: #388e3c;
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <h1>🔒 اضغط لمشاهدة المحتوى</h1>
-        <p>لمشاهدة المحتوى اضغط على الزر أدناه.</p>
-        <button id="watchButton">👀 اضغط لمشاهدة المحتوى</button>
-        <div class="content-box" id="content">
-            <h2>🎉 مبروك! الآن يمكنك الوصول إلى المحتوى:</h2>
-            <p>📄 تحميل ملف PDF</p>
-            <a href="https://yourfilelink.com/sample.pdf" download>
-                <button>📥 تحميل PDF</button>
+        <h1>👛 مرحبًا بك في محفظتك</h1>
+        <p>لعرض الرصيد والمعاملات، اضغط على الزر أدناه</p>
+        <button id="showWallet">👀 عرض المحفظة</button>
+        
+        <div class="wallet-content" id="walletContent">
+            <h2>💰 رصيدك الحالي: <span style="color: #4caf50;">1250.00 د.إ</span></h2>
+            <p>📄 كشف الحساب</p>
+            <a href="https://yourwallet.com/statement.pdf" download>
+                <button>📥 تحميل كشف الحساب PDF</button>
             </a>
-            <p>🎥 مشاهدة الفيديو</p>
-            <iframe src="https://www.youtube.com/embed/gxW2CddIocU" allowfullscreen></iframe>
-            <p>🖼️ عرض صورة</p>
-            <img src="https://i.imgur.com/2mXRNqW.jpg" alt="صورة الذكاء الاصطناعي" width="100%">
-            <p>🤖 جرب أدوات الذكاء الاصطناعي الآن</p>
-            <a href="https://neuraltools.tech" target="_blank">
-                <button>🌐 زيارة موقع NeuralTools</button>
+            <p>🕘 آخر المعاملات</p>
+            <ul style="text-align: right; font-size: 16px;">
+                <li>شراء - متجر أمازون: -120 د.إ</li>
+                <li>إيداع - بطاقة مدى: +500 د.إ</li>
+                <li>تحويل - إلى علي: -300 د.إ</li>
+            </ul>
+            <a href="https://yourwallet.com/dashboard" target="_blank">
+                <button>🌐 الذهاب إلى لوحة التحكم</button>
             </a>
         </div>
     </div>
+
     <script>
-        document.getElementById("watchButton").addEventListener("click", function() {
+        document.getElementById("showWallet").addEventListener("click", function() {
             show_9026863().then(() => {
-                document.getElementById("content").style.display = "block";
-                document.getElementById("watchButton").style.display = "none";
+                document.getElementById("walletContent").style.display = "block";
+                document.getElementById("showWallet").style.display = "none";
             }).catch(() => {
-                alert("❌ حدث خطأ أثناء عرض الإعلان.");
+                alert("❌ تعذر عرض الإعلان. حاول مرة أخرى.");
             });
         });
     </script>
