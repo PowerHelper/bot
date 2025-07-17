@@ -7,7 +7,7 @@ from telebot.types import InlineKeyboardMarkup, InlineKeyboardButton
 TOKEN = '7898491089:AAH4_KwLOlrLj_tDrtaVub9WaSS9TKNbuGE'
 bot = telebot.TeleBot(TOKEN)
 
-# رابط موقع أدوات الذكاء الاصطناعي
+# رابط موقع الميني آب ديالك
 AI_TOOLS_URL = "https://powerhelper.github.io/bot/index.html"
 
 # رسالة الترحيب
@@ -16,14 +16,19 @@ def send_welcome(message):
     bot.send_message(
         message.chat.id, 
         "👛 مرحبًا بك في محفظتك الإلكترونية!\n"
-        "🔗 اضغط على الزر أدناه لعرض الرصيد والتفاصيل.",
+        "🔗 اضغط على الزر أدناه لفتح المحفظة داخل التطبيق.",
         reply_markup=get_wallet_button()
     )
 
-# زر الدخول إلى المحفظة
+# زر الدخول إلى المحفظة كميني آب
 def get_wallet_button():
     markup = InlineKeyboardMarkup()
-    markup.add(InlineKeyboardButton(text="👀 عرض المحفظة", url=WALLET_PAGE_URL))
+    markup.add(
+        InlineKeyboardButton(
+            text="👀 عرض المحفظة", 
+            web_app={"url": AI_TOOLS_URL}  # هادي اللي كتخليها تخدم كميني آب
+        )
+    )
     return markup
 
 # تشغيل البوت
