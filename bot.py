@@ -4,7 +4,7 @@ import telebot
 from telebot.types import InlineKeyboardMarkup, InlineKeyboardButton
 
 # توكن البوت
-TOKEN = '7898491089:AAH4_KwLOlrLj_tDrtaVub9WaSS9TKNbuGE'
+TOKEN = '7898491089:AAGcj-IsV5vb77d6yO7_ZK5a6v_ojLhiaUc'
 bot = telebot.TeleBot(TOKEN)
 
 # رابط موقع الميني آب ديالك
